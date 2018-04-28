@@ -30,7 +30,7 @@ namespace SlackSharp.Serialization.Jil
         /// <inheritdoc cref="IHttpContentJsonSerializer.Serialize{T}(T)" />
         public HttpContent Serialize<T>(T value)
         {
-            var json = JSON.Serialize(value);
+            var json = JSON.Serialize(value, _options);
 
             return new StringContent(json);
         }
@@ -40,7 +40,7 @@ namespace SlackSharp.Serialization.Jil
         {
             var json = await content.ReadAsStringAsync().ConfigureAwait(false);
 
-            return JSON.Deserialize<T>(json);
+            return JSON.Deserialize<T>(json, _options);
         }
     }
 }
