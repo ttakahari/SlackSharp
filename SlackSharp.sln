@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlackSharp.Tests", "test\Sl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackSharp.Serialization.JsonNet", "src\SlackSharp.Serialization.JsonNet\SlackSharp.Serialization.JsonNet.csproj", "{DDAF4C92-A31A-40C2-8CE8-86249C9400C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackSharp.Serialization.Jil", "src\SlackSharp.Serialization.Jil\SlackSharp.Serialization.Jil.csproj", "{6A17437E-3A58-41FA-AC59-06B9BFD7F682}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{DDAF4C92-A31A-40C2-8CE8-86249C9400C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDAF4C92-A31A-40C2-8CE8-86249C9400C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDAF4C92-A31A-40C2-8CE8-86249C9400C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A17437E-3A58-41FA-AC59-06B9BFD7F682}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A17437E-3A58-41FA-AC59-06B9BFD7F682}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A17437E-3A58-41FA-AC59-06B9BFD7F682}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A17437E-3A58-41FA-AC59-06B9BFD7F682}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{DD20E859-D4FC-4F30-B175-30F594AA952D} = {B5F366B3-17D0-455A-A4FB-328BE382D0D3}
 		{52117460-413C-473F-BFC9-95E78E162FF1} = {31B4C456-839A-45CB-A285-C02CE1FABA18}
 		{DDAF4C92-A31A-40C2-8CE8-86249C9400C9} = {B5F366B3-17D0-455A-A4FB-328BE382D0D3}
+		{6A17437E-3A58-41FA-AC59-06B9BFD7F682} = {B5F366B3-17D0-455A-A4FB-328BE382D0D3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F65DBD8A-CED8-4FFE-B5DB-6D2C515035AE}

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard1.6;net46</TargetFrameworks>
+        <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Jil" Version="2.15.4" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+        <PackageReference Include="NETStandard.Library" Version="2.0.0" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+        <Reference Include="System" />
+        <Reference Include="System.Net.Http" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SlackSharp\SlackSharp.csproj" />
+    </ItemGroup>
+
+</Project>
