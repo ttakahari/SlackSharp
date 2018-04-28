@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace SlackSharp
 {
+    /// <summary>
+    /// A client class that has methods to send messages with Incoming WebHooks.
+    /// </summary>
     public class WebHookClient : IWebHookClient
     {
         private bool _disposed;
@@ -12,16 +15,31 @@ namespace SlackSharp
         private readonly HttpClient _client;
         private readonly IHttpContentJsonSerializer _serializer;
 
+        /// <summary>
+        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/>.
+        /// </summary>
+        /// <param name="serializer">The instance of <see cref="IHttpContentJsonSerializer"/>.</param>
         public WebHookClient(IHttpContentJsonSerializer serializer)
             : this(serializer, new HttpClientHandler(), true)
         {
         }
 
+        /// <summary>
+        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/> and an inner handler.
+        /// </summary>
+        /// <param name="serializer">instance of <see cref="IHttpContentJsonSerializer"/>.</param>
+        /// <param name="handler">The inner handler.</param>
         public WebHookClient(IHttpContentJsonSerializer serializer, HttpMessageHandler handler)
             : this(serializer, handler, true)
         {
         }
 
+        /// <summary>
+        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/>, an inner handler and whether disposig the inner handler or not.
+        /// </summary>
+        /// <param name="serializer">instance of <see cref="IHttpContentJsonSerializer"/>.</param>
+        /// <param name="handler">The inner handler.</param>
+        /// <param name="disposeHandler">Whether disposing the inner handler or not.</param>
         public WebHookClient(IHttpContentJsonSerializer serializer, HttpMessageHandler handler, bool disposeHandler)
         {
             if (handler == null)
@@ -33,9 +51,11 @@ namespace SlackSharp
             _client = new HttpClient(handler, disposeHandler);
         }
 
+        /// <inheritdoc cref="IWebHookClient.SendAsync(string, string)" />
         public async Task<ResponseMessage> SendAsync(string url, string message)
             => await SendAsync(url, new Payload { Text = message }).ConfigureAwait(false);
 
+        /// <inheritdoc cref="IWebHookClient.SendAsync(string, Payload)" />
         public async Task<ResponseMessage> SendAsync(string url, Payload payload)
         {
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
@@ -58,9 +78,13 @@ namespace SlackSharp
             }
         }
 
+        /// <summary>
+        /// A destructor for disposing this instance.
+        /// </summary>
         ~WebHookClient()
             => Dispose(false);
 
+        /// <inheritdoc cref="IDisposable.Dispose()" />
         public void Dispose()
         {
             Dispose(true);
