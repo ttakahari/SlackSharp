@@ -23,7 +23,7 @@ namespace SlackSharp.Serialization.Jil
         /// <summary>
         /// Create a new instance with recieving the configuration of Jil.
         /// </summary>
-        /// <param name="settings">The configuration of Jil.</param>
+        /// <param name="options">The configuration of Jil.</param>
         public JilSerializer(Options options)
             => _options = options ?? throw new ArgumentNullException(nameof(options));
 

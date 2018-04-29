@@ -25,7 +25,7 @@ namespace SlackSharp.Serialization.Utf8Json
         /// <summary>
         /// Create a new instance with recieving the JSON fomat resolver of Utf8Json.
         /// </summary>
-        /// <param name="settings">The JSON fomat resolver of Utf8Json.</param>
+        /// <param name="resolver">The JSON fomat resolver of Utf8Json.</param>
         public Utf8JsonSerializer(IJsonFormatterResolver resolver)
             => _resolver = resolver ?? throw new ArgumentNullException(nameof(resolver));
 
