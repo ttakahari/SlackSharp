@@ -1,7 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Description>Slack API client library for C#.</Description>
+        <Copyright>Copyright t.takahari 2018</Copyright>
+        <AssemblyTitle>SlackSharp</AssemblyTitle>
+        <VersionPrefix>0.1.0</VersionPrefix>
+        <Authors>t.takahari</Authors>
         <TargetFrameworks>netstandard2.0;netstandard1.6;net46</TargetFrameworks>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AssemblyName>SlackSharp</AssemblyName>
+        <PackageId>SlackSharp</PackageId>
+        <PackageTags>Slack</PackageTags>
+        <PackageProjectUrl>https://github.com/ttakahari/SlackSharp</PackageProjectUrl>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/ttakahari/SlackSharp</RepositoryUrl>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     </PropertyGroup>
 
@@ -22,7 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Models\" />
+        <Folder Include="Models\" />
     </ItemGroup>
 
 </Project>
