@@ -4,6 +4,9 @@ Slack API clinet library for C#.
 
 Currently support for only Incoming WebHooks API.
 
+[![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?style=plastic)](https://ci.appveyor.com/project/ttakahari/SlackSharp)
+[![NuGet](https://img.shields.io/nuget/v/SlackSharp.svg?style=plastic)](https://www.nuget.org/packages/SlackSharp/)
+
 ## Install
 
 from NuGet - [SlackSharp](https://www.nuget.org/packages/SlackSharp/)
