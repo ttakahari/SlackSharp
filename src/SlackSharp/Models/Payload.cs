@@ -5,9 +5,6 @@ namespace SlackSharp.Models
     [DataContract]
     public class Payload
     {
-        [DataMember(Name = "channel")]
-        public string Channel { get; set; }
-
         [DataMember(Name = "username")]
         public string Username { get; set; }
 
