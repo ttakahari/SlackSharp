@@ -1,4 +1,5 @@
-﻿using SlackSharp.Models;
+﻿using JsonHttpContentConverter;
+using SlackSharp.Models;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -13,34 +14,34 @@ namespace SlackSharp
         private bool _disposed;
 
         private readonly HttpClient _client;
-        private readonly IHttpContentJsonSerializer _serializer;
+        private readonly IJsonHttpContentConverter _serializer;
 
         /// <summary>
-        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/>.
+        /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/>.
         /// </summary>
-        /// <param name="serializer">The instance of <see cref="IHttpContentJsonSerializer"/>.</param>
-        public WebHookClient(IHttpContentJsonSerializer serializer)
+        /// <param name="serializer">The instance of <see cref="IJsonHttpContentConverter"/>.</param>
+        public WebHookClient(IJsonHttpContentConverter serializer)
             : this(serializer, new HttpClientHandler(), true)
         {
         }
 
         /// <summary>
-        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/> and an inner handler.
+        /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/> and an inner handler.
         /// </summary>
-        /// <param name="serializer">instance of <see cref="IHttpContentJsonSerializer"/>.</param>
+        /// <param name="serializer">instance of <see cref="IJsonHttpContentConverter"/>.</param>
         /// <param name="handler">The inner handler.</param>
-        public WebHookClient(IHttpContentJsonSerializer serializer, HttpMessageHandler handler)
+        public WebHookClient(IJsonHttpContentConverter serializer, HttpMessageHandler handler)
             : this(serializer, handler, true)
         {
         }
 
         /// <summary>
-        /// Create a new instance with recieveing an instance of <see cref="IHttpContentJsonSerializer"/>, an inner handler and whether disposig the inner handler or not.
+        /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/>, an inner handler and whether disposig the inner handler or not.
         /// </summary>
-        /// <param name="serializer">instance of <see cref="IHttpContentJsonSerializer"/>.</param>
+        /// <param name="serializer">instance of <see cref="IJsonHttpContentConverter"/>.</param>
         /// <param name="handler">The inner handler.</param>
         /// <param name="disposeHandler">Whether disposing the inner handler or not.</param>
-        public WebHookClient(IHttpContentJsonSerializer serializer, HttpMessageHandler handler, bool disposeHandler)
+        public WebHookClient(IJsonHttpContentConverter serializer, HttpMessageHandler handler, bool disposeHandler)
         {
             if (handler == null)
             {
@@ -61,7 +62,7 @@ namespace SlackSharp
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
             if (payload == null) throw new ArgumentNullException(nameof(payload));
 
-            var content = _serializer.Serialize(payload);
+            var content = _serializer.ToJsonHttpContent(payload);
             var response = await _client.PostAsync(url, content).ConfigureAwait(false);
             var message = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
