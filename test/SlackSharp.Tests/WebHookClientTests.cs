@@ -1,4 +1,5 @@
-﻿using SlackSharp.Models;
+﻿using JsonHttpContentConverter.JsonNet;
+using SlackSharp.Models;
 using System;
 using System.Net.Http;
 using System.Text;
@@ -17,23 +18,23 @@ namespace SlackSharp.Tests
             {
                 Assert.Throws<ArgumentNullException>(() => new WebHookClient(null));
                 Assert.Throws<ArgumentNullException>(() => new WebHookClient(null, new HttpClientHandler()));
-                Assert.Throws<ArgumentNullException>(() => new WebHookClient(new HttpContenJsonSerializer(), null));
+                Assert.Throws<ArgumentNullException>(() => new WebHookClient(new JsonNetHttpContentConverter(), null));
             }
 
             {
-                var client = new WebHookClient(new HttpContenJsonSerializer());
+                var client = new WebHookClient(new JsonNetHttpContentConverter());
 
                 Assert.NotNull(client);
             }
 
             {
-                var client = new WebHookClient(new HttpContenJsonSerializer(), new HttpClientHandler());
+                var client = new WebHookClient(new JsonNetHttpContentConverter(), new HttpClientHandler());
 
                 Assert.NotNull(client);
             }
 
             {
-                var client = new WebHookClient(new HttpContenJsonSerializer(), new HttpClientHandler(), true);
+                var client = new WebHookClient(new JsonNetHttpContentConverter(), new HttpClientHandler(), true);
 
                 Assert.NotNull(client);
             }
@@ -42,7 +43,7 @@ namespace SlackSharp.Tests
         [Fact]
         public async Task SendAsync_Tests()
         {
-            using (var client = new WebHookClient(new HttpContenJsonSerializer()))
+            using (var client = new WebHookClient(new JsonNetHttpContentConverter()))
             {
                 {
                     Payload payload = null;
