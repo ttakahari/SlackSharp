@@ -14,41 +14,41 @@ namespace SlackSharp
         private bool _disposed;
 
         private readonly HttpClient _client;
-        private readonly IJsonHttpContentConverter _serializer;
+        private readonly IJsonHttpContentConverter _converter;
 
         /// <summary>
         /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/>.
         /// </summary>
-        /// <param name="serializer">The instance of <see cref="IJsonHttpContentConverter"/>.</param>
-        public WebHookClient(IJsonHttpContentConverter serializer)
-            : this(serializer, new HttpClientHandler(), true)
+        /// <param name="converter">The instance of <see cref="IJsonHttpContentConverter"/>.</param>
+        public WebHookClient(IJsonHttpContentConverter converter)
+            : this(converter, new HttpClientHandler(), true)
         {
         }
 
         /// <summary>
         /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/> and an inner handler.
         /// </summary>
-        /// <param name="serializer">instance of <see cref="IJsonHttpContentConverter"/>.</param>
+        /// <param name="converter">instance of <see cref="IJsonHttpContentConverter"/>.</param>
         /// <param name="handler">The inner handler.</param>
-        public WebHookClient(IJsonHttpContentConverter serializer, HttpMessageHandler handler)
-            : this(serializer, handler, true)
+        public WebHookClient(IJsonHttpContentConverter converter, HttpMessageHandler handler)
+            : this(converter, handler, true)
         {
         }
 
         /// <summary>
         /// Create a new instance with recieveing an instance of <see cref="IJsonHttpContentConverter"/>, an inner handler and whether disposig the inner handler or not.
         /// </summary>
-        /// <param name="serializer">instance of <see cref="IJsonHttpContentConverter"/>.</param>
+        /// <param name="converter">instance of <see cref="IJsonHttpContentConverter"/>.</param>
         /// <param name="handler">The inner handler.</param>
         /// <param name="disposeHandler">Whether disposing the inner handler or not.</param>
-        public WebHookClient(IJsonHttpContentConverter serializer, HttpMessageHandler handler, bool disposeHandler)
+        public WebHookClient(IJsonHttpContentConverter converter, HttpMessageHandler handler, bool disposeHandler)
         {
             if (handler == null)
             {
                 throw new ArgumentNullException(nameof(handler));
             }
 
-            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
+            _converter = converter ?? throw new ArgumentNullException(nameof(converter));
             _client = new HttpClient(handler, disposeHandler);
         }
 
@@ -62,7 +62,7 @@ namespace SlackSharp
             if (string.IsNullOrEmpty(url)) throw new ArgumentNullException(nameof(url));
             if (payload == null) throw new ArgumentNullException(nameof(payload));
 
-            var content = _serializer.ToJsonHttpContent(payload);
+            var content = _converter.ToJsonHttpContent(payload);
             var response = await _client.PostAsync(url, content).ConfigureAwait(false);
             var message = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
