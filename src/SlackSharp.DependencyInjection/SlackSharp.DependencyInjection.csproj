@@ -1,7 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <Description>Resovles instances of SlackSharp with Microsoft.Extensions.DependencyInjection.</Description>
+        <Copyright>Copyright t.takahari 2019</Copyright>
+        <AssemblyTitle>SlackSharp.DependencyInjection</AssemblyTitle>
+        <VersionPrefix>0.2.0</VersionPrefix>
+        <Authors>t.takahari</Authors>
         <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AssemblyName>SlackSharp.DependencyInjection</AssemblyName>
+        <PackageId>SlackSharp.DependencyInjection</PackageId>
+        <PackageTags>Slack;DependencyInjection</PackageTags>
+        <PackageProjectUrl>https://github.com/ttakahari/SlackSharp</PackageProjectUrl>
+        <PackageLicenseUrl>http://opensource.org/licenses/MIT</PackageLicenseUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/ttakahari/SlackSharp</RepositoryUrl>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>

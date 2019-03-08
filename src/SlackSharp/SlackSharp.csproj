@@ -4,7 +4,7 @@
         <Description>Slack API client library for C#.</Description>
         <Copyright>Copyright t.takahari 2018</Copyright>
         <AssemblyTitle>SlackSharp</AssemblyTitle>
-        <VersionPrefix>0.1.0</VersionPrefix>
+        <VersionPrefix>0.2.0</VersionPrefix>
         <Authors>t.takahari</Authors>
         <TargetFrameworks>netstandard2.0;netstandard1.6;net46</TargetFrameworks>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
