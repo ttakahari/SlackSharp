@@ -11,7 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{31B4C456-8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlackSharp.Tests", "test\SlackSharp.Tests\SlackSharp.Tests.csproj", "{52117460-413C-473F-BFC9-95E78E162FF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackSharp.DependencyInjection", "src\SlackSharp.DependencyInjection\SlackSharp.DependencyInjection.csproj", "{FF1960F3-B028-478D-BA32-9D4CBEAAAE33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlackSharp.DependencyInjection", "src\SlackSharp.DependencyInjection\SlackSharp.DependencyInjection.csproj", "{FF1960F3-B028-478D-BA32-9D4CBEAAAE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlackSharp.DependencyInjection.Tests", "test\SlackSharp.DependencyInjection.Tests\SlackSharp.DependencyInjection.Tests.csproj", "{B9248BA1-5267-430A-A457-512C46C3DA9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{FF1960F3-B028-478D-BA32-9D4CBEAAAE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF1960F3-B028-478D-BA32-9D4CBEAAAE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF1960F3-B028-478D-BA32-9D4CBEAAAE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9248BA1-5267-430A-A457-512C46C3DA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9248BA1-5267-430A-A457-512C46C3DA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9248BA1-5267-430A-A457-512C46C3DA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9248BA1-5267-430A-A457-512C46C3DA9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{DD20E859-D4FC-4F30-B175-30F594AA952D} = {B5F366B3-17D0-455A-A4FB-328BE382D0D3}
 		{52117460-413C-473F-BFC9-95E78E162FF1} = {31B4C456-839A-45CB-A285-C02CE1FABA18}
 		{FF1960F3-B028-478D-BA32-9D4CBEAAAE33} = {B5F366B3-17D0-455A-A4FB-328BE382D0D3}
+		{B9248BA1-5267-430A-A457-512C46C3DA9D} = {31B4C456-839A-45CB-A285-C02CE1FABA18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F65DBD8A-CED8-4FFE-B5DB-6D2C515035AE}
